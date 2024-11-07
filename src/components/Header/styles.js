@@ -6,19 +6,19 @@ export const Container = styled.div`
     height: 47px;
     display: flex;
     justify-content: space-between;
-    align-items: center; /* Corrigido "center" */
+    align-items: center;
     margin: 0 auto;
 `;
 
 export const Row = styled.div`
     display: flex;
-    flex-direction: row; /* Corrigido "flex-direction" */
+    flex-direction: row;
     align-items: center;
 `;
 
 export const Column = styled.div`
     display: flex;
-    flex-direction: column; /* Corrigido "flex-direction" */
+    flex-direction: column;
     align-items: center;
 `;
 
@@ -45,9 +45,9 @@ export const BuscarInputContainer = styled.div`
 `;
 
 export const Menu = styled.a`
-    font-family: 'Open Sans', sans-serif; /* Adicionado "sans-serif" */
+    font-family: 'Open Sans', sans-serif;
     font-style: normal;
-    font-size: 12px;
+    font-size: 18px;
     line-height: 25px;
     color: #FFFFFF;
     margin-right: 12px;
@@ -55,7 +55,7 @@ export const Menu = styled.a`
 `;
 
 export const MenuRight = styled.a`
-    font-family: 'Open Sans', sans-serif; /* Adicionado "sans-serif" */
+    font-family: 'Open Sans', sans-serif;
     font-style: normal;
     font-size: 12px;
     line-height: 25px;
