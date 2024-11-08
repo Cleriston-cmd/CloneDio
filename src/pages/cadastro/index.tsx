@@ -9,6 +9,7 @@ import { Input } from "../../components/Input";
 
 import { api } from '../../services/api'; 
 import { Container, Title, Column, TitleCadastro, SubtitleCadastro, Row, Wrapper, StyledMdPerson, StyledMdEmail, StyledMdLock } from './styles';
+import { IFormDataCadastro } from './types';
 
 const schema = yup.object({
     name: yup.string().required('Campo obrigatório'),
@@ -19,12 +20,12 @@ const schema = yup.object({
 const Cadastro = () => {
     const navigate = useNavigate();
 
-    const { control, handleSubmit, formState: { errors } } = useForm({
+    const { control, handleSubmit, formState: { errors } } = useForm<IFormDataCadastro>({
          resolver: yupResolver(schema), 
          mode: 'onChange', 
     });
 
-    const onSubmit = async formData => { 
+    const onSubmit = async (formData: IFormDataCadastro)=> { 
         try {
             const response = await api.post('/register', formData);
             if (response.status === 201) {
