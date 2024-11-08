@@ -1,4 +1,3 @@
-import { MdEmail, MdLock, MdPerson } from 'react-icons/md';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -9,7 +8,7 @@ import { Header } from "../../components/Header";
 import { Input } from "../../components/Input";
 
 import { api } from '../../services/api'; 
-import { Container, Title, Column, TitleCadastro, SubtitleCadastro, Row, Wrapper } from './styles';
+import { Container, Title, Column, TitleCadastro, SubtitleCadastro, Row, Wrapper, StyledMdPerson, StyledMdEmail, StyledMdLock } from './styles';
 
 const schema = yup.object({
     name: yup.string().required('Campo obrigatório'),
@@ -45,29 +44,30 @@ const Cadastro = () => {
             <Container>
                 <Column>
                     <Title>
-                        A plataforma para você aprender com experts, dominar as principais tecnologias 
-                        e entrar mais rápido nas empresas mais desejadas.
+                        A plataforma para você <br />aprender com experts, <br />dominar as principais <br />tecnologias 
+                        e entrar <br />mais rápido nas <br />empresas mais <br />desejadas.
                     </Title>
                 </Column>
                 <Column>
                     <Wrapper>
-                        <TitleCadastro>Comece agora grátis!!</TitleCadastro>
+                        <TitleCadastro>Comece agora grátis!</TitleCadastro>
                         <SubtitleCadastro>Crie sua conta e make the change._</SubtitleCadastro>
-                        <form>
-                            <Input name="name" control={control} placeholder="Nome completo" leftIcon={<MdPerson />} />
-                            <Input name="email" control={control} placeholder="E-mail" leftIcon={<MdPerson />} />
-                            <Input name="password" control={control} placeholder="Senha" leftIcon={<MdPerson />} />
-                            <Button title="Criar minha conta" variant='secondary' />
+                        <form onSubmit={handleSubmit(onSubmit)}>
+                            <Input name="name" errorMessage={errors?.name?.message} control={control} placeholder="Nome completo" leftIcon={<StyledMdPerson />} />
+                            <Input name="email" errorMessage={errors?.email?.message} control={control} placeholder="E-mail" leftIcon={<StyledMdEmail />} />
+                            <Input name="password" errorMessage={errors?.password?.message} control={control} placeholder="Senha" leftIcon={<StyledMdLock />} />
+                            <br />
+                            <Button title="Criar minha conta" variant='secondary' type="submit"/>
                         </form>
                         <Row>
                             <p>Ao clicar em "criar minha conta", 
                                 declaro que aceito as Políticas de Privacidade e os Termos de Uso da DIO.</p>
-                            <p>Já tenho conta <a href='/cadastro'>Fazer login</a></p>
+                            <br />
+                            <p className='account-text'>Já tenho conta. <a href='/login' className='login-link'>Fazer login</a></p>
                         </Row>
                     </Wrapper>
                 </Column>
             </Container>
-        </>
-    )
+        </>)
 }
 export { Cadastro }
