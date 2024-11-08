@@ -40,6 +40,10 @@ const Login = () => {
         }
     };
 
+    const handleCreateAccount = () => { 
+        navigate('/cadastro');
+     };
+
 
     return (<>
         <Header />
@@ -52,7 +56,7 @@ const Login = () => {
             </Column>
             <Column>
                 <Wrapper>
-                    <TitleLogin>Faça seu cadastro</TitleLogin>
+                    <TitleLogin>Já tem cadastro?</TitleLogin>
                     <SubtitleLogin>Faça seu login e make the change._</SubtitleLogin>
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <Input name="email" errorMessage={errors?.email?.message} control={control} placeholder="E-mail" leftIcon={<MdEmail />}/>
@@ -61,7 +65,7 @@ const Login = () => {
                     </form>
                     <Row>
                         <EsqueciText>Esqueci minha senha</EsqueciText>
-                        <CriarText>Criar conta</CriarText>
+                        <CriarText onClick={handleCreateAccount}>Criar conta</CriarText>
                     </Row>
                 </Wrapper>
             </Column>
